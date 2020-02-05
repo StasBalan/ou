@@ -1,0 +1,40 @@
+@import '../../../../../../../assets/scss/helpers';
+
+.message {
+  position: relative;
+  max-width: 300px;
+  margin-bottom: 10px;
+  padding: 5px 10px 10px 10px;
+  color: var(-white);
+  background-color: var(--gradient-background);
+  background-color: linear-gradient(-45deg, rgba(22,147,133,1) 1%, rgba(26,188,156,1) 48%, rgba(28,204,177,1) 100%);
+  background-color: linear-gradient(135deg, rgba(22,147,133,1) 1%, rgba(26,188,156,1) 48%, rgba(28,204,177,1) 100%);
+  border-radius: 5px;
+
+  &__author {
+    @include font($color: var(--header-chat), $weight: 700);
+
+    padding-bottom: 5px;
+  }
+
+  &__info {
+    @include flex;
+
+    &-text {
+      flex-grow: 1;
+      padding: 0 10px 10px 0;
+      white-space: pre-wrap;
+      word-break: break-all;
+      word-break: break-word;
+    }
+
+    &-time {
+      @include flex($ai: flex-end, $fsh: 0);
+      @include font(13px);
+    }
+  }
+}
+
+.my__message {
+  background-color: var(--primary-back-2);
+}

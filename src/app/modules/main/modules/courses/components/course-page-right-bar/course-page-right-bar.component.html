@@ -1,0 +1,34 @@
+<!-- <div class="backdrop"></div> //TODO: сделать backdrop -->
+
+<img class="teacher-avatar" *ngIf="!isOpened"/>
+
+<div class="user-list" *ngIf="isOpened">
+  <div class="user-list__teachers">
+    <div class="title">
+      <span>Преподователи</span>
+    </div>
+
+    <div class="user" *ngFor="let teacher of teachers">
+      <span>{{ getUserFullName(teacher) }}</span>
+    </div>
+  </div>
+
+  <div class="user-list__students">
+    <div class="title">
+      <span>Студенты</span>
+    </div>
+
+    <div class="user" *ngFor="let student of students">
+      <span>{{ getUserFullName(student) }}</span>
+    </div>
+  </div>
+</div>
+
+<mat-icon
+  title="Участники курса"
+  class="right-bar__arrow"
+  [class.opened]="isOpened"
+  (click)="toggleCourseUsers()"
+>
+  keyboard_arrow_down
+</mat-icon>

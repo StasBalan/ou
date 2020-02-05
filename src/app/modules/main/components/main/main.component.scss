@@ -1,0 +1,15 @@
+@import "../../../../../assets/scss/helpers";
+
+:host {
+  @include flex($fg: 1);
+
+  min-height: 0;
+  color: var(--white);
+  background-color: var(--primary-back-1);
+}
+
+.left-bar {
+  @include flex(column, $fsh: 0);
+
+  width: 280px;
+}

@@ -1,0 +1,65 @@
+@import '../../../../../../../assets/scss/helpers';
+
+:host {
+  @include host-styles;
+
+  padding: 50px;
+}
+
+.header {
+  @include flex($ai: center, $fsh: 0);
+
+  height: 60px;
+  margin-bottom: 20px;
+  padding: 0 38px 0 20px;
+  background-color: var(--primary-back-2);
+  border-radius: 5px;
+
+  &__avatar {
+    flex-shrink: 0;
+    width: 50px;
+    margin-right: 20px;
+    text-align: right;
+  }
+
+  &__fullName {
+    flex-grow: 1;
+    min-width: 200px;
+    margin-right: 20px;
+  }
+
+  &__roleName {
+    flex-shrink: 0;
+    width: 170px;
+    margin-right: 20px;
+  }
+
+  &__registered-at {
+    flex-shrink: 0;
+    width: 190px;
+    margin-right: 20px;
+  }
+
+  &__actions {
+    flex-shrink: 0;
+    width: 80px;
+  }
+}
+
+.user-list {
+  @include flex(column, $fg: 1);
+  @include scrollbar;
+
+  padding-right: 10px;
+  overflow-y: scroll;
+
+  &__item {
+    &:nth-child(2n + 1) {
+      background-color: var(--primary-back-2-04);
+    }
+
+    &:nth-child(2n) {
+      background-color: var(--primary-back-2-08);
+    }
+  }
+}

@@ -1,0 +1,32 @@
+<ou-dialog-layout [dialogRef]="dialogRef">
+  <ng-container ouDialogTitle>
+    <mat-icon class="title-icon">post_add</mat-icon>
+    <span>Создание курса</span>
+  </ng-container>
+
+  <ng-container ouDialogContent>
+    <div class="user-edit-form" [formGroup]="createCourseForm">
+      <ou-custom-input
+        class="field"
+        *ngFor="let field of createCourseFormConfig"
+        [field]="field"
+        [formControlName]="field.control.name"
+      >
+      </ou-custom-input>
+    </div>
+  </ng-container>
+
+  <ng-container ouDialogActions>
+    <button
+      class="action primary"
+      [disabled]="createCourseForm.invalid"
+      (click)="saveChanges()"
+    >
+      <ou-spinner *ngIf="loadingProcess" [diameter]="30" color="white"></ou-spinner>
+
+      <span *ngIf="!loadingProcess">Создать</span>
+    </button>
+    <button class="action secondary" (click)="closeDialog()">Отмена</button>
+  </ng-container>
+
+</ou-dialog-layout>

@@ -1,0 +1,30 @@
+<form class="form" [formGroup]="loginForm">
+  <div class="form__container">
+    <div class="header">
+      <div class="header__title">Авторизация</div>
+    </div>
+
+    <div class="fields">
+      <ou-custom-input
+        class="field"
+        *ngFor="let field of loginFormConfig"
+        [field] = "field"
+        [formControlName]="field.control.name"
+      >
+      </ou-custom-input>
+    </div>
+
+    <div class="actions">
+      <button class="actions__button" (click)="handleSubmit()">
+        <ou-spinner *ngIf="loadingProcess" [diameter]="30" color="white"></ou-spinner>
+
+        <span *ngIf="!loadingProcess">Войти</span>
+      </button>
+    </div>
+
+    <div class="register">
+      <span class="register__call-to-action">Ещё нет аккаунта?</span>
+      <a class="register__button" routerLink="/register">Регистрация</a>
+    </div>
+  </div>
+</form>

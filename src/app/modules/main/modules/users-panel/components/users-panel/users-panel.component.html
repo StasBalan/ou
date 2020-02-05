@@ -1,0 +1,39 @@
+<div class="header">
+  <div class="header__avatar">
+    <span>Фото</span>
+  </div>
+
+  <div class="header__fullName">
+    <span>Полное имя</span>
+  </div>
+
+  <div class="header__roleName">
+    <span>Роль</span>
+  </div>
+
+  <div class="header__registered-at">
+    <span>Дата регистрации</span>
+  </div>
+
+  <div class="header__actions">
+    <span>Действия</span>
+  </div>
+</div>
+
+
+<div class="user-list">
+  <ou-spinner *ngIf="loadingProcess; else userList" [stretch]="true"></ou-spinner>
+
+  <ng-template #userList>
+    <ng-container *ngIf="(usersStream | async) as users">
+      <ou-user-panel-card
+        class="user-list__item"
+        *ngFor="let user of users; trackBy: trackByUser"
+        [user]="user"
+        (editUser)="onUserEdit(user)"
+        (deleteUser)="onUserDelete(user)"
+      >
+      </ou-user-panel-card>
+    </ng-container>
+  </ng-template>
+</div>

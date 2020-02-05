@@ -1,0 +1,97 @@
+@import '../../../../../../../assets/scss/helpers';
+
+:host {
+  @include host-styles;
+
+  padding: 50px;
+}
+
+.header {
+  @include flex($ai: center, $fsh: 0);
+
+  height: 50px;
+
+  &__title {
+    @include font(24px, var(--white), 700);
+
+    &:after {
+      content: "";
+      display: block;
+      width: 70px;
+      height: 3px;
+      margin-top: 10px;
+      background-color: var(--white);
+    }
+  }
+}
+
+.settings-list {
+  flex-grow: 1;
+  padding: 20px 0;
+}
+
+.photo-selector {
+  &__action {
+    @include flex-center;
+
+    cursor: pointer;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-color: var(--white);
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    overflow: hidden;
+
+    .on-hover {
+      @include flex-center;
+
+      position: absolute;
+      z-index: 1;
+      width: inherit;
+      height: inherit;
+      background-color: rgba(0, 0, 0, .5);
+      opacity: 0;
+      transition: .25s opacity ease-in-out;
+
+      mat-icon {
+        @include font(35px, var(--white));
+
+        width: 35px;
+        height: 35px;
+      }
+    }
+
+    .avatar-image {
+      width: inherit;
+    }
+
+    .default-avatar {
+      @include font(55px, var(--primary-back-1));
+
+      width: 55px;
+      height: 55px;
+    }
+
+    &:hover {
+      .on-hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__input {
+    display: none;
+  }
+}
+
+.actions {
+  @include flex($ai: center, $fsh: 0);
+
+  height: 50px;
+
+  &__item {
+    width: 120px;
+    height: 40px;
+  }
+}

@@ -1,0 +1,69 @@
+@import '../../../../assets/scss/helpers';
+
+:host {
+  @include flex-center;
+
+  position: relative;
+}
+
+.wrapper {
+  position: relative;
+  width: 50px;
+  margin: 0 auto;
+
+  &:before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+}
+
+.circular {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  transform-origin: center center;
+  animation: rotate 2s linear infinite;
+}
+
+.path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+
+// Color classes
+
+.white { stroke: var(--white); }
+.black { stroke: var(--black); }
+.primary-1 { stroke: var(--primary-1); }
+.primary-2 { stroke: var(--primary-2); }
+.primary-back-1 { stroke: var(--primary-back-1) }
+.primary-back-2 { stroke: var(--primary-back-2) }

@@ -1,0 +1,32 @@
+<div class="header">
+  <div class="header__user-name">
+    <span>{{ chatName }}</span>
+  </div>
+
+  <mat-icon class="header__more-info">more_vert</mat-icon>
+</div>
+
+<div class="messages-box">
+  <ou-message-item
+    [class.me]="message.userId === user.userId"
+    [class.not-me]="message.userId !== user.userId"
+    *ngFor="let message of messages; trackBy: trackByMessage"
+    [messageData]="message"
+    [userId]="user.userId"
+  >
+  </ou-message-item> <!-- TODO: поменять название классов me, not-me -->
+</div>
+
+<div class="actions">
+  <textarea
+    class="actions__input"
+    type="text"
+    placeholder="Напишите сообщение..."
+    [formControl]="textMessageControl"
+  >
+  </textarea>
+
+  <button class="actions__send" (click)="sendMessage()">
+    <mat-icon>send</mat-icon>
+  </button>
+</div>

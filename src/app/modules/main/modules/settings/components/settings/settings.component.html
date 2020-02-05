@@ -1,0 +1,33 @@
+<div class="header">
+  <div class="header__title">
+    <span>Настройки</span>
+  </div>
+</div>
+
+<div class="settings-list">
+  <div class="photo-selector">
+    <label for="files-input" class="photo-selector__action" title="Загрузить фото">
+      <div class="on-hover">
+        <mat-icon>photo_camera</mat-icon>
+      </div>
+
+      <img class="avatar-image" *ngIf="avatarUrl; else emptyAvatar" [src]="avatarUrl" />
+
+      <ng-template #emptyAvatar>
+        <mat-icon class="default-avatar">person</mat-icon>
+      </ng-template>
+    </label>
+
+    <input
+      #filesInput
+      id="files-input"
+      class="photo-selector__input"
+      type="file"
+      (change)="newPhotoSelected(filesInput.files)"
+    />
+  </div>
+</div>
+
+<div class="actions">
+  <button class="actions__item primary" (click)="uploadAvatar(filesInput.files)">Сохранить</button>
+</div>

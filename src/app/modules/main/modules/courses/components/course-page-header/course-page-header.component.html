@@ -1,0 +1,26 @@
+<div class="header">
+  <div class="info">
+    <div class="info__title">
+      {{ course?.courseName }}
+    </div>
+
+    <div class="info__group">
+      {{ course?.courseGroupName }}
+    </div>
+  </div>
+
+  <div class="header__arrow" title="Описание" (click)="toggleDescription()">
+    <mat-icon class="header__arrow-icon" [class.opened]="isOpened">
+      keyboard_arrow_down
+    </mat-icon>
+  </div>
+
+  <ou-image [width]="130" [height]="117.54" src="cube.png"></ou-image>
+</div>
+
+<div class="description-wrapper" [style.maxHeight.px]="maxHeight">
+  <div class="description" #descriptionRef>
+    {{ course?.courseDescription }}
+  </div>
+</div>
+

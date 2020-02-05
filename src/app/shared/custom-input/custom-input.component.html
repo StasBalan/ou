@@ -1,0 +1,31 @@
+<div class="label">
+
+  <mat-icon class="label__icon" *ngIf="field.matIcon">{{ field.matIcon }}</mat-icon>
+
+  <label [for]="field.id" class="label__title">
+    <span>{{ field.label }}</span>
+    <span *ngIf="field.required" title="Обязательное поле"> *</span>
+  </label>
+
+</div>
+
+<div class="input">
+
+  <input
+    class="input__field"
+    [id]="field.id"
+    [type]="field.type"
+    [placeholder]="field.placeholder"
+    [formControl]="formControl"
+    (input)="onChange($event.target.value)"
+  >
+
+  <mat-icon
+    class="input__icon"
+    *ngIf="isFieldInvalid"
+    [title]="errorMessage"
+  >
+    error_outline
+  </mat-icon>
+
+</div>

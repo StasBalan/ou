@@ -1,0 +1,71 @@
+@import '../../../../../../../assets/scss/helpers';
+
+:host {
+  @include host-styles;
+}
+
+.header {
+  @include flex(row, center, $fsh: 0);
+
+  height: 50px;
+  background-color: var(--header-chat);
+
+  &__user-name {
+    flex-grow: 1;
+    padding-left: 15px;
+  }
+
+  &__more-info {
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-right: 15px;
+  }
+}
+
+.messages-box {
+  @include flex(column, $fg: 1);
+
+  padding: 20px;
+  overflow-y: auto;
+
+  .not-me {
+    @include flex($jc: flex-start);
+  }
+
+  .me {
+    @include flex($jc: flex-end);
+  }
+}
+
+.actions {
+  @include flex(row, center, $fsh: 0);
+
+  position: relative;
+
+  &__input {
+    flex-grow: 1;
+    width: 100%;
+    min-height: 50px;
+    max-height: 200px;
+    padding: 10px 70px 10px 10px;
+    word-wrap: break-word;
+    resize: none;
+    overflow-x: hidden;
+  }
+
+  &__send {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    flex-shrink: 0;
+    background: none;
+    border: none;
+
+    mat-icon {
+      @include font(30px, var(--primary-1));
+
+      width: 30px;
+      height: 30px;
+    }
+  }
+}

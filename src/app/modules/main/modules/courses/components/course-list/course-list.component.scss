@@ -1,0 +1,46 @@
+@import '../../../../../../../assets/scss/helpers';
+
+:host {
+  @include host-styles;
+
+  align-items: center;
+  margin-top: 50px;
+  padding: 0 50px;
+}
+
+.empty-list {
+  @include flex(column, center, center, $fg: 1);
+  @include font(20px, var(--white), 700);
+}
+
+.courses {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  flex-grow: 1;
+  width: 1000px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.pages {
+  @include flex($ai: center, $jc: center, $fsh: 0);
+
+  height: 70px;
+
+  &__item {
+    @include flex-center;
+
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    color: var(--black);
+    background-color: var(--white);
+    border-radius: 50%;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

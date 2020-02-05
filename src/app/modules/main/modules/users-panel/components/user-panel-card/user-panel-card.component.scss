@@ -1,0 +1,91 @@
+@import '../../../../../../../assets/scss/helpers';
+
+:host {
+  @include flex($ai: center, $fsh: 0);
+
+  height: 70px;
+  padding: 0 20px;
+}
+
+.avatar {
+  @include flex($ai: center, $jc: center, $fsh: 0);
+
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+  background-color: var(--white);
+  border: 1.5px solid var(--white);
+  border-radius: 50%;
+  overflow: hidden;
+
+  &__image {
+    @include flex-center;
+
+    width: inherit;
+  }
+
+  .empty-avatar {
+    @include flex-center;
+
+    width: 45px;
+    height: 45px;
+    background-color: var(--white);
+    border-radius: 50%;
+
+    mat-icon {
+      @include font(25px, var(--primary-back-1));
+
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
+
+.fullName {
+  flex-grow: 1;
+  min-width: 200px;
+  margin-right: 20px;
+}
+
+.roleName {
+  flex-shrink: 0;
+  width: 170px;
+  margin-right: 20px;
+}
+
+.registered-at {
+  flex-shrink: 0;
+  width: 190px;
+  margin-right: 20px;
+}
+
+.actions {
+  @include flex($ai: center, $jc: center, $fsh: 0);
+
+  width: 80px;
+
+  &__item {
+    @include flex-center;
+
+    margin-right: 10px;
+    padding: 5px;
+    border: 1.5px solid transparent;
+    border-radius: 50%;
+    transition: .25s all ease-in-out;
+
+    mat-icon {
+      @include font(22px, var(--white));
+
+      width: 22px;
+      height: 22px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      border-color: var(--white);
+    }
+  }
+}

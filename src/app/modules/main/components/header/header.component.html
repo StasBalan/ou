@@ -1,0 +1,20 @@
+<div class="avatar-and-info">
+  <div class="avatar">
+    <img class="avatar__image" *ngIf="avatarUrl; else emptyAvatar" [src]="avatarUrl" />
+
+    <ng-template #emptyAvatar>
+      <mat-icon class="avatar__default">person</mat-icon>
+    </ng-template>
+  </div>
+
+  <div class="info">
+    <div class="info__fullname">{{ fullName }}</div>
+    <div class="info__role">{{ roleName }}</div>
+  </div>
+</div>
+
+<div class="email-and-exit">
+  <!-- TODO: Подумать над созданием нашей директивы, например, titleDirective -->
+  <div class="email" [title]="user?.email">{{ user?.email }}</div>
+  <mat-icon class="exit" title="Выйти" (click)="logout()">exit_to_app</mat-icon>
+</div>

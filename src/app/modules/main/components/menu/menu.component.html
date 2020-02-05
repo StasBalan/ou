@@ -1,0 +1,16 @@
+<div class="menu-item-list">
+  <a
+    class="menu-item"
+    *ngFor="let item of menuItems"
+    [routerLink]="item.href"
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLinkActive="active"
+  >
+    <mat-icon class="menu-item__icon">{{ item.matIcon }}</mat-icon>
+    <span>{{ item.label }}</span>
+  </a>
+</div>
+
+<div class="logo-wrapper">
+  <ou-image [width]="153" [height]="86" src="logo.svg"></ou-image>
+</div>

@@ -1,0 +1,17 @@
+<div class="header">
+  <div class="header__title">
+    <ng-content select="[ouDialogTitle]"></ng-content>
+  </div>
+
+  <button class="header__close-button" title="Закрыть" (click)="closeDialog()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<div class="content">
+  <ng-content select="[ouDialogContent]"></ng-content>
+</div>
+
+<div class="actions">
+  <ng-content select="[ouDialogActions]"></ng-content>
+</div>

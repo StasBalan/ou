@@ -1,0 +1,30 @@
+<form class="form" [formGroup]="registerForm">
+  <div class="form__container">
+    <div class="header">
+      <div class="header__title">Регистрация</div>
+    </div>
+
+    <div class="fields">
+      <ou-custom-input
+        class="field"
+        *ngFor="let field of registerFormConfig"
+        [field] = "field"
+        [formControlName]="field.control.name"
+      >
+      </ou-custom-input>
+    </div>
+
+    <div class="actions">
+      <button class="actions__button" (click)="handleRegister()">
+        <ou-spinner *ngIf="loadingProcess" [diameter]="30" color="white"></ou-spinner>
+
+        <span *ngIf="!loadingProcess">Зарегистрироваться</span>
+      </button>
+    </div>
+
+    <div class="login">
+      <span class="login__call-to-action">Есть аккаунт?</span>
+      <a class="login__button" routerLink="/login">Войти</a>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,15 @@
+<div class="message" [class.my__message]="isMyMessage">
+  <div *ngIf="!isMyMessage" class="message__author">
+    {{ messageData.authorName }}
+  </div>
+
+  <div class="message__info">
+    <div class="message__info-text">
+      {{ messageData.messageText }}
+    </div>
+
+    <div class="message__info-time">
+      {{ messageData.sentAt | date:'HH:mm' }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<ou-spinner
+  *ngIf="!isImageLoaded"
+  [blockWidth]="width"
+  [blockHeight]="height"
+  position="absolute"
+  color="white"
+>
+</ou-spinner>
+
+<img
+  [src]="imageSrc"
+  [alt]="alt"
+  (load)="onImageLoad()"
+/>

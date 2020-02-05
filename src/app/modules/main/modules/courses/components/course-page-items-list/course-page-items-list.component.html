@@ -1,0 +1,28 @@
+<div class="no-course-items" *ngIf="noCourseItems; else courseItemList">
+  <span class="no-course-items__description">В ленте пока ничего нет</span>
+  <mat-icon class="no-course-items__icon">sentiment_very_dissatisfied</mat-icon>
+</div>
+
+<ng-template #courseItemList>
+  <div class="content-wrapper">
+    <div class="course-item" *ngFor="let courseItem of courseItems">
+      <div class="course-item__header">
+        <div class="course-item__header-title">
+          Пользователь<br>
+          {{ getFullNameTeacher(courseItem?.creator) }}<br>
+          добавил задание
+        </div>
+
+        <mat-icon class="course-item__header-icon">bookmarks</mat-icon>
+      </div>
+
+      <div class="course-item__description">
+        {{ courseItem?.courseItemTextContent }}
+      </div>
+
+      <div class="course-item__published-date">
+        {{ courseItem?.addedAt | date: 'dd.MM.yyyy' }}
+      </div>
+    </div>
+  </div>
+</ng-template>

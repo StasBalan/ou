@@ -1,0 +1,31 @@
+<div class="avatar">
+  <img class="avatar__image" *ngIf="avatarUrl; else emptyAvatar" [src]="avatarUrl">
+
+  <ng-template #emptyAvatar>
+    <div class="empty-avatar">
+      <mat-icon>person</mat-icon>
+    </div>
+  </ng-template>
+</div>
+
+<div class="fullName">
+  <span>{{ fullName }}</span>
+</div>
+
+<div class="roleName">
+  <span>{{ roleName }}</span>
+</div>
+
+<div class="registered-at">
+  <span>{{ user.registeredAt | date: 'dd.MM.yyyy, HH:mm:ss' }}</span>
+</div>
+
+<div class="actions">
+  <button class="actions__item" title="Отредактировать" (click)="onEdit()">
+    <mat-icon>edit</mat-icon>
+  </button>
+
+  <button class="actions__item" title="Удалить" (click)="onDelete()">
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>

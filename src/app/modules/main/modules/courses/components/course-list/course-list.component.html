@@ -1,0 +1,51 @@
+<ou-spinner *ngIf="loadingProcess; else coursesBody" [stretch]="true"></ou-spinner>
+
+<ng-template #coursesBody>
+  <ng-container *ngIf="(coursesChunksStream | async) as coursesChunks">
+
+    <ng-container *ngIf="noCourses; else coursesView">
+      <div class="empty-list">
+        <span>Список пуст</span>
+      </div>
+    </ng-container>
+
+    <ng-template #coursesView>
+      <ng-container *ngIf="noSearchResults; else courseListBlock">
+        <div class="empty-list">
+          <span>Поиск не дал результатов</span>
+        </div>
+      </ng-container>
+
+      <ng-template #courseListBlock>
+        <div class="courses">
+          <ng-container *ngIf="oneCoursesChunk">
+            <ou-course-card
+              *ngFor="let course of coursesChunks[0]; trackBy: trackByCourses"
+              [course]="course"
+            >
+            </ou-course-card>
+          </ng-container>
+
+          <ng-container *ngIf="manyCourseChunks">
+            <ou-course-card
+              *ngFor="let course of coursesChunks[currentChunkIndex]; trackBy: trackByCourses"
+              [course]="course"
+            >
+            </ou-course-card>
+          </ng-container>
+        </div>
+
+        <div class="pages" *ngIf="manyCourseChunks">
+          <div
+            class="pages__item"
+            *ngFor="let chunk of coursesChunks; let index = index; trackBy: trackByPages"
+            (click)="showPage(index)"
+          >
+            <span>{{ index + 1 }}</span>
+          </div>
+        </div>
+      </ng-template>
+    </ng-template>
+
+  </ng-container>
+</ng-template>

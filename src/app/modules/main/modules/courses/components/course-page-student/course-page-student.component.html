@@ -1,0 +1,10 @@
+<div class="main-content">
+  <ou-spinner *ngIf="loadingProcess; else contentBody" [stretch]="true"></ou-spinner>
+
+  <ng-template #contentBody>
+    <ou-course-page-header [course]="course"></ou-course-page-header>
+    <ou-course-page-items-list [courseItems]="course?.courseItems"></ou-course-page-items-list>
+  </ng-template>
+</div>
+
+<ou-course-page-right-bar [courseUsers]="course?.users"></ou-course-page-right-bar>

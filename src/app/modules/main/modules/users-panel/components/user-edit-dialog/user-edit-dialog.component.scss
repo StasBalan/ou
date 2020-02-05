@@ -1,0 +1,29 @@
+@import '../../../../../../../assets/scss/helpers';
+
+:host {
+    @include flex(column);
+    @include dialog-host-styles;
+}
+
+.title-icon {
+    margin-right: 5px;
+}
+
+.user-edit-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.field {
+    margin: 10px;
+}
+
+.action {
+  width: 120px;
+  height: 40px;
+  margin-right: 20px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

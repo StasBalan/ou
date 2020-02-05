@@ -1,0 +1,10 @@
+<ou-chat-list
+  [chatList]="chatList"
+  (chatSelected)="setCurrentChatId($event)"
+>
+</ou-chat-list>
+
+<ou-chat-body
+  [currentChatId]="currentChatId"
+>
+</ou-chat-body>

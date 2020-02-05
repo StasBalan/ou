@@ -1,0 +1,15 @@
+@import '../../../../../../../assets/scss/helpers';
+
+:host {
+  @include flex($fg: 1);
+
+  min-height: 0;
+}
+
+.main-content {
+  @include flex(column, $ai: center, $fg: 1);
+
+  min-height: 0;
+  margin-right: 40px;
+  padding: 40px;
+}

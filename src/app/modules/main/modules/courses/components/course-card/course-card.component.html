@@ -1,0 +1,17 @@
+<div class="course-card" (click)="goToCoursePage(course.courseId)">
+  <div class="info">
+    <div class="info__name">
+      <span>{{ course.courseName }}</span>
+    </div>
+
+    <div class="info__group">
+      <span>{{ course.courseGroupName }}</span>
+    </div>
+
+    <div class="info__teacher-name">
+      <span>{{ course.courseOwnerFullName }}</span>
+    </div>
+  </div>
+
+  <ou-image [width]="130" [height]="117.54" src="cube.png"></ou-image>
+</div>

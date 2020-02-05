@@ -1,0 +1,76 @@
+@import '../../../../../../../assets/scss/helpers';
+
+:host {
+  flex-shrink: 0;
+}
+
+.header {
+  @include flex;
+
+  position: relative;
+  width: 740px;
+  height: 150px;
+  padding: 10px 15px;
+  background-color: var(--primary-1);
+  border-radius: 5px;
+
+  .info {
+    @include flex(column, $fg: 1);
+
+    padding: 20px 10px;
+
+    &__title {
+      @include font(24px, $weight: 900);
+
+      flex-grow: 1;
+    }
+
+    &__group {
+      flex-shrink: 0;
+    }
+  }
+
+  &__arrow {
+    @include flex-center;
+
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    width: 32px;
+    height: 32px;
+    background-color: var(--white);
+    border-radius: 50%;
+    transform: translate(-50%);
+
+    &-icon {
+      color: var(--primary-1);
+      transition: .25s all linear;
+
+      &.opened {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+
+  &__image {
+    flex-shrink: 0;
+    width: 130px;
+  }
+}
+
+.description-wrapper {
+  max-height: 0;
+  margin-top: 5px;
+  margin-bottom: 40px;
+  overflow: hidden;
+  transition: .25s max-height linear;
+
+  .description {
+    @include font($color: var(--black));
+
+    padding: 20px;
+    background-color: var(--white);
+    border-radius: 5px;
+  }
+}

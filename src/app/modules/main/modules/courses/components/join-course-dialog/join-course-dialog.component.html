@@ -1,0 +1,22 @@
+<ou-dialog-layout [dialogRef]="dialogRef">
+  <ng-container ouDialogTitle>
+    <span>Присоединиться к курсу</span>
+  </ng-container>
+
+  <ng-container ouDialogContent>
+    <ou-custom-input
+      class="course-code-control"
+      [field]="courseCodeControlConfig"
+      [formControl]="courseCodeControl"
+    >
+    </ou-custom-input>
+  </ng-container>
+
+  <ng-container ouDialogActions>
+    <button class="action primary" (click)="joinCourse()">
+      <ou-spinner *ngIf="loadingProcess" [diameter]="30" color="white"></ou-spinner>
+
+      <span *ngIf="!loadingProcess">Присоединиться</span>
+    </button>
+  </ng-container>
+</ou-dialog-layout>

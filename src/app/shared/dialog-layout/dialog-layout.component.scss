@@ -1,0 +1,51 @@
+@import '../../../assets/scss/helpers';
+
+:host {
+  @include host-styles;
+
+  background-color: var(--primary-back-2);
+}
+
+.header {
+  @include flex($ai: center, $fsh: 0);
+
+  height: 70px;
+  padding: 0 20px;
+  background-color: var(--primary-back-1);
+
+  &__title {
+    @include flex($ai: center);
+    @include font(20px, var(--white));
+
+    flex-grow: 1;
+  }
+
+  &__close-button {
+    @include flex-center;
+
+    cursor: pointer;
+    margin-left: 20px;
+    padding: 5px;
+    color: var(--white);
+    border: 1.5px solid transparent;
+    border-radius: 50%;
+    transition: .25s all ease-in-out;
+
+    &:hover {
+      border-color: var(--white);
+      transform: rotate(-90deg);
+    }
+  }
+}
+
+.content {
+  flex-grow: 1;
+  padding: 20px 20px 30px 20px;
+}
+
+.actions {
+  @include flex($jc: center, $fsh: 0);
+
+  padding: 0 20px;
+  margin-bottom: 30px;
+}

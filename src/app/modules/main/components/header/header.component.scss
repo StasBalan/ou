@@ -1,0 +1,74 @@
+@import '../../../../../assets/scss/helpers';
+
+:host {
+  @include flex(column, $fsh: 0);
+
+  height: 180px;
+  padding: 0 18px;
+  background-color: var(--primary-2);
+}
+
+.avatar-and-info {
+  @include flex($ai: center);
+
+  margin: 35px 0;
+
+  .avatar {
+    @include flex-center;
+
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    margin-right: 18px;
+    background-color: var(--white);
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    overflow: hidden;
+
+    &__image {
+      width: inherit;
+    }
+
+    &__default {
+      @include font(45px, var(--primary-back-1));
+
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+  .info {
+    flex-grow: 1;
+
+    &__fullname {
+      @include font(20px, $weight: 700);
+
+      margin-bottom: 10px;
+    }
+
+    &__role {
+      @include font(14px, $weight: 400);
+    }
+  }
+}
+
+.email-and-exit {
+  @include flex;
+
+  .email {
+    @include font(14px, $weight: 400);
+
+    flex-grow: 1;
+    line-height: 24px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .exit {
+    cursor: pointer;
+    flex-shrink: 0;
+    width: 24px;
+    margin-left: 10px;
+  }
+}

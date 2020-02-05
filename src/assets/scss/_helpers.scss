@@ -1,0 +1,119 @@
+@mixin font($size: false, $color: false, $weight: false, $lh: false, $ff: false, $ls: false) {
+    @if $size {
+        font-size: $size;
+    }
+
+    @if $color {
+        color: $color;
+    }
+
+    @if $weight {
+        font-weight: $weight;
+    }
+
+    @if $lh {
+        line-height: $lh;
+    }
+
+    @if $ff {
+        font-family: $ff;
+    }
+
+    @if $ls {
+        letter-spacing: $ls;
+    }
+}
+
+@mixin flex-center {
+  @include flex($ai: center, $jc: center);
+}
+
+@mixin flex-center-column {
+  @include flex(column, center, center);
+}
+
+@mixin flex($direction: false, $ai: false, $jc: false, $wrap: false, $as: false, $js: false, $fb: false, $fsh: false, $fg: false, $ff: false, $ac: false, $flex: false) {
+    display: flex;
+
+    @if $direction {
+        flex-direction: $direction;
+    }
+
+    @if $ai {
+        align-items: $ai;
+    }
+
+    @if $jc {
+        justify-content: $jc;
+    }
+
+    @if $wrap {
+      flex-wrap: $wrap;
+    }
+
+    @if $as {
+        align-self: $as;
+    }
+
+    @if $js {
+        justify-self: $js;
+    }
+
+    @if $fb {
+        flex-basis: $fb;
+    }
+
+    @if $fsh {
+        flex-shrink: $fsh;
+    }
+
+    @if $fg {
+        flex-grow: $fg;
+    }
+
+    @if $ff {
+        flex-flow: $ff;
+    }
+
+    @if $ac {
+        align-content: $ac;
+    }
+
+    @if $flex {
+        flex: $flex;
+    }
+}
+
+@mixin host-styles {
+  @include flex(column, $fg: 1);
+
+  min-height: 0;
+}
+
+@mixin dialog-host-styles {
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+@mixin scrollbar($size: 8px, $background-color: var(--white), $track-color: var(--primary-1), $border-radius: 5px) {
+  // Firefox
+  scrollbar-width: thin;
+  scrollbar-color: $track-color $background-color;
+
+  // Webkit browsers
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $background-color;
+    border-radius: $border-radius;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $track-color;
+    border-radius: $border-radius;
+  }
+}

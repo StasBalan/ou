@@ -1,0 +1,30 @@
+<ou-dialog-layout [dialogRef]="dialogRef">
+  <ng-container ouDialogTitle>
+    <mat-icon class="title-icon">edit</mat-icon>
+    <span>Отредактировать пользователя</span>
+  </ng-container>
+
+  <ng-container ouDialogContent>
+    <div class="user-edit-form" [formGroup]="userEditForm">
+      <ou-custom-input
+        class="field"
+        *ngFor="let field of userEditFormConfig"
+        [field]="field"
+        [formControlName]="field.control.name"
+      >
+      </ou-custom-input>
+    </div>
+  </ng-container>
+
+  <ng-container ouDialogActions>
+    <button
+      class="action primary"
+      [disabled]="!isFormDirty()"
+      (click)="saveChanges()"
+    >
+      <ou-spinner *ngIf="loadingProcess" [diameter]="30" color="white"></ou-spinner>
+      <span *ngIf="!loadingProcess">Сохранить</span>
+    </button>
+    <button class="action secondary" (click)="closeDialog()">Отмена</button>
+  </ng-container>
+</ou-dialog-layout>

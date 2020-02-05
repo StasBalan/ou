@@ -1,0 +1,32 @@
+<div class="header">
+  <div class="header__title">Мои курсы</div>
+
+  <div class="header__search-panel">
+    <mat-icon class="header__search-panel-icon">search</mat-icon>
+    <input class="header__search-panel-field" placeholder="Поиск по курсам..." [formControl]="searchControl" />
+  </div>
+
+  <div class="header__actions">
+
+    <mat-icon
+      class="header__actions-item"
+      title="Оповещения"
+    >
+      notifications
+    </mat-icon>
+
+    <mat-icon
+      class="header__actions-item"
+      title="Присоединиться к курсу"
+      (click)="openJoinCourseDialog()"
+    >
+      add
+    </mat-icon>
+
+  </div>
+</div>
+
+<ou-course-list
+  [valueToSearch]="valueToSearch"
+>
+</ou-course-list>

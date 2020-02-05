@@ -1,0 +1,56 @@
+@import '../../../../../../../assets/scss/helpers';
+
+:host {
+  width: 430px;
+  margin: 30px;
+  padding: 24px 18px;
+  background-color: var(--primary-1);
+  border-radius: 5px;
+}
+
+.course-card {
+  @include flex;
+
+  cursor: pointer;
+  opacity: .75;
+  transition: .25s all ease-in-out;
+
+  &:hover {
+    opacity: 1;
+    transform: scale(0.96);
+  }
+
+  .info {
+    @include flex(column, flex-start, $fg: 1);
+
+    &__name {
+      @include font(24px, $weight: 700);
+
+      flex-grow: 1;
+      width: 250px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    &__group {
+      @include font(24px, $weight: 700);
+
+      flex-shrink: 0;
+    }
+
+    &__teacher-name {
+      @include font(18px, $weight: 400);
+
+      flex-shrink: 0;
+    }
+  }
+
+  .image {
+    flex-shrink: 0;
+
+    img {
+      width: 130px;
+    }
+  }
+}

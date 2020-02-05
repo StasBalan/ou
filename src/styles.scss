@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700|Material+Icons&display=swap&subset=cyrillic');
+
+@import './assets/scss/colors';
+@import './assets/scss/helpers';
+
+@import './assets/css/normalize.css';
+
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  min-height: 0;
+  font-family: 'Ubuntu', sans-serif;
+  letter-spacing: .3px;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+
+  &::selection {
+    color: var(--primary-back-2);
+    background-color: var(--primary-2);
+  }
+}
+
+button, input, textarea, a {
+  outline: none
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+
+  &.primary {
+    @include flex-center;
+    @include font(18px, var(--white));
+
+    background-color: var(--primary-1);
+    border: none;
+    border-radius: 5px;
+    transition: .25s all ease-in-out;
+
+    &:hover {
+      background-color: var(--primary-2);
+    }
+  }
+
+  &.secondary {
+    @include flex-center;
+    @include font(18px, var(--white));
+
+    border: 2px solid var(--primary-1);
+    border-radius: 5px;
+    transition: .25s all ease-in-out;
+
+    &:hover {
+      background-color: var(--primary-back-1);
+    }
+  }
+
+  &[disabled] {
+    cursor: default;
+    background-color: var(--gray);
+
+    &:hover {
+      background-color: var(--gray);
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+mat-icon::selection {
+  color: inherit;
+  background-color: transparent;
+}

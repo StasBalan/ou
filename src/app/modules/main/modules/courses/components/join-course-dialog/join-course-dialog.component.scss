@@ -1,0 +1,17 @@
+@import '../../../../../../../assets/scss/helpers';
+
+:host {
+  @include dialog-host-styles;
+
+  background-color: var(--white);
+}
+
+.course-code-control {
+  width: 100%;
+  padding: 10px 40px;
+}
+
+.action {
+  width: 200px;
+  height: 40px;
+}

@@ -1,0 +1,78 @@
+@import '../../../../../../assets/scss/helpers';
+
+:host {
+  @include host-styles;
+}
+
+.header {
+  @include flex($ai: center, $fsh: 0);
+
+  &__title {
+    @include font(24px, $weight: 700);
+
+    flex-shrink: 0;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 3px;
+      margin-top: 10px;
+      background-color: var(--white);
+    }
+  }
+
+  &__search-panel {
+    @include flex($ai: center, $fg: 1);
+
+    position: relative;
+    min-width: 500px;
+    margin: 0 40px;
+
+    &-field {
+      flex-grow: 1;
+      padding: 12px 22px 12px 52px;
+      color: var(--white);
+      background-color: var(--field-background);
+      border: none;
+      border-radius: 5px;
+    }
+
+    &-icon {
+      @include font(30px);
+
+      position: absolute;
+      left: 10px;
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  &__actions {
+    @include flex($jc: flex-end, $fsh: 0);
+
+    &-item {
+      @include flex-center;
+      @include font(30px, var(--black));
+
+      cursor: pointer;
+      width: 50px;
+      height: 50px;
+      margin-right: 15px;
+      background-color: var(--white);
+      border-radius: 50%;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.courses {
+  @include flex($jc: center, $wrap: wrap);
+
+  margin-top: 70px;
+  padding: 0 50px;
+  overflow: hidden auto;
+}

@@ -1,0 +1,13 @@
+<div class="search-panel">
+  <input type="text" placeholder="Поиск диалога..." />
+</div>
+
+<div class="chat-list">
+  <ou-chat-list-item
+    class="chat-list__item"
+    *ngFor="let chat of chatList; trackBy: trackByChat"
+    [chatData]="chat"
+    (click)="selectChat(chat.chatId)"
+  >
+  </ou-chat-list-item>
+</div>

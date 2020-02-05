@@ -1,0 +1,7 @@
+<ng-container [ngSwitch]="currentRole">
+  <ou-courses-teacher *ngSwitchCase="roles.Teacher"></ou-courses-teacher>
+
+  <ou-courses-student *ngSwitchCase="roles.Student"></ou-courses-student>
+
+  <ou-courses-admin *ngSwitchCase="roles.Admin"></ou-courses-admin>
+</ng-container>

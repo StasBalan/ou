@@ -1,0 +1,60 @@
+@import "../../../assets/scss/helpers";
+
+:host {
+  @include flex(column);
+
+  width: 260px;
+  min-width: 260px;
+  min-height: 0;
+}
+
+.label {
+  @include flex($ai: center);
+  @include font(14px, var(--white));
+
+  &__icon {
+    margin-right: 5px;
+  }
+}
+
+.input {
+  @include flex(column);
+
+  position: relative;
+
+  &__field {
+    @include font(16px, var(--white));
+
+    height: 45px;
+    margin-top: 12px;
+    padding: 0 10px;
+    background-color: var(--primary-back-1);
+    border: 1px solid transparent;
+    border-radius: 5px;
+    transition: .25s all ease-in-out;
+
+    &::placeholder {
+      @include font(14px);
+    }
+
+    &.ng-touched.ng-invalid,
+    &.ng-dirty.ng-invalid {
+      padding-right: 45px;
+    }
+  }
+
+  &__icon {
+    @include font(21px);
+
+    cursor: help;
+    position: absolute;
+    top: 25px;
+    right: 10px;
+    color: var(--error);
+  }
+
+  .ng-touched.ng-invalid,
+  .ng-dirty.ng-invalid {
+    border-color: var(--error);
+  }
+}
